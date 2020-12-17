@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+
+
 import Navbar from "./components/Navbar";
 import Home from "./containers/Home";
 import ItemDetailContainer from "./containers/ItemDetailContainer";
 import Default from "./components/Default";
 import Cart from "./containers/Cart";
 import HomeFilter from "./components/HomeFilter";
+import BuyConfirm from "./containers/BuyConfirm"
 
 import { CartProvider } from './context/UseCartContext'
 
@@ -24,7 +27,7 @@ function App() {
             <Route exact path="/filter/:filter">{<HomeFilter />}</Route>
             <Route exact path="/detail/:id"> {<ItemDetailContainer />}</Route>
             <Route exact path="/cart">{<Cart />}</Route>
-
+            <Route exact path="/buyconfirm">{<BuyConfirm/>}</Route>
             <Route>{<Default />}</Route>
           </Switch>
 

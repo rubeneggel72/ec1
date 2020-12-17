@@ -10,7 +10,15 @@ export const CartProvider = ({ children }) => {
     const [totalPrice, setTotalPrice] = useState(0)
 
 
-
+    const  total=()=>{
+        var value = 0
+        cart.map((cart) => {
+            value = value + cart.priceItem
+            console.log("value Remove" + value)
+            
+    })
+    setTotalPrice(value)
+    }
 
 
     const AddCart = (counter, product) => {
@@ -28,12 +36,7 @@ export const CartProvider = ({ children }) => {
             newCart.push(product)
             setCart([...newCart])
         }
-        var value = 0
-        cart.map((cart) => {
-            value = value + cart.priceItem
-            console.log("value" + value)
-            setTotalPrice(value)
-        })
+        total()
 
     }
 
@@ -42,24 +45,19 @@ export const CartProvider = ({ children }) => {
         const newCart = cart
         newCart.splice(idx, 1)
         setCart([...newCart])
+        total()
+           
+
     }
 
     const CleanCart = () => {
         setCart([])
+        total()
     }
-
-
 
     return (
         <CartContext.Provider value={{ cant, producto, AddCart, cart, totalPrice, RemoveCart, CleanCart }}>
             {children}
         </CartContext.Provider>)
 }
-
-
-
-
-
-
-
 export default useCartContext

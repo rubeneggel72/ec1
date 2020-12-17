@@ -1,8 +1,13 @@
 import React from 'react';
 import useCartContext from "../context/UseCartContext"
-const CartTotals = () => {
 
-    const { totalPrice, CleanCart } = useCartContext()
+import { Link } from "react-router-dom";   
+const CartTotals = () => {
+    
+
+    const { totalPrice, CleanCart,cart } = useCartContext()
+
+   
     return (
         <div className="container">
             <div className="row">
@@ -24,7 +29,11 @@ const CartTotals = () => {
                         <span className="text-blue">total : </span>
                         <strong>$ {totalPrice + 0.2*totalPrice}</strong>
                     </h5>
-
+                    <Link to='/buyconfirm'>
+                    <button className="btn btn-outline-danger text-uppercase mb-3 px-5" type="button" >
+                        Confirmar Compra
+                    </button>
+                    </Link>
                 </div>
 
             </div>

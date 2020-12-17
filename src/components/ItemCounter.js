@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
 
+
+
+
 const ItemCounter = ({ initial, min, max, onAdd }) => {
    const [counter, setCounter] = useState(initial)
    var min = parseInt(min)
